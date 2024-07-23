@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"runtime"
 	"syscall"
 	"time"
 )
@@ -25,6 +26,7 @@ func main() {
 			return
 		case <-time.After(1 * time.Second):
 			fmt.Printf("Test app output. version: %s, date: %s, commit: %s\n", version, date, commit)
+			fmt.Printf("OS: %s\n", runtime.GOOS)
 		}
 	}
 }
